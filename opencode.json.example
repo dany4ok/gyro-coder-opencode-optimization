@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "strata/gyro-gyro-s",
+  "providers": {
+    "strata": {
+      "name": "Strata Local",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://127.0.0.1:47831/v1",
+        "apiKey": "{env:STRATA_LOCAL_TOKEN}",
+        "headerTimeout": 900000
+      },
+      "models": {
+        "gyro-gyro-s": {
+          "name": "Gyro Gyro S",
+          "modelID": "gyro-gyro-s",
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          },
+          "settings": {
+            "cache": {
+              "warming": false
+            }
+          }
+        },
+        "coder-iq1_m": {
+          "name": "Coder IQ1 M",
+          "modelID": "coder-iq1_m",
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          },
+          "settings": {
+            "cache": {
+              "warming": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "mcp": {}
+}
