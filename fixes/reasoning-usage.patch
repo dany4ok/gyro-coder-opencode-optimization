@@ -1,0 +1,14 @@
+--- a/control/serve/server.py
++++ b/control/serve/server.py
+@@ -6866,6 +6866,11 @@
+                              "total_tokens": pt + x["completion_tokens"],
+                              # the part of the prompt the conversation cache already held (OpenAI's field)
+                              "prompt_tokens_details": {"cached_tokens": x.get("reused") or 0}}
++            # Report the same counted reasoning tokens as the Responses API.  Leave the field
++            # absent if the producer does not supply a count; do not infer it from text.
++            reasoning_tokens = x.get("reasoning_tokens")
++            if isinstance(reasoning_tokens, int) and not isinstance(reasoning_tokens, bool) and 0 <= reasoning_tokens <= x["completion_tokens"]:
++                last["usage"]["completion_tokens_details"] = {"reasoning_tokens": reasoning_tokens}
+             if x.get("timings"):
+                 last["timings"] = x["timings"]          # llama.cpp's field: the speed its clients show
+             if x.get("rejected_tool_calls"):

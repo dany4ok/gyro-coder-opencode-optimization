@@ -39,3 +39,11 @@ The gateway port above is the local Strata desktop gateway. `strata/coder-iq1_m`
 ## Rollback
 
 Local backups kept beside the config: `opencode.json.bak-coder-limits-*` and `AGENTS.md.bak-coder-guidance-*`. Restore by copying over the current file.
+
+## Investigation archive
+
+This repository also carries the earlier Gyro-S investigation merged from `dany4ok/gyro-s-opencode-optimization`:
+`benchmark/` (task specs plus the unchanged external acceptance suites), `reports/` (one file per experiment),
+`tools/`, `fixes/`, `experiments/`, `notes/` and `docs/`. The archive README is kept at
+`docs/gyro-s-investigation-2026-11-10.md`; its reports describe single-run A/B tests, so timings there are not
+repeated measurements.
